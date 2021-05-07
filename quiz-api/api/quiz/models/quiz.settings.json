@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "name": "Quiz",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "min_score": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "results": {
+      "via": "quiz",
+      "collection": "result"
+    },
+    "answers": {
+      "via": "quiz",
+      "collection": "answer"
+    },
+    "questions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.question"
+    }
+  }
+}

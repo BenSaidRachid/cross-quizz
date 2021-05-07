@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_quiz_options",
+  "info": {
+    "name": "option",
+    "icon": "arrows-alt"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "correct": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

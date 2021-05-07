@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "name": "answer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "point": {
+      "default": 0,
+      "type": "integer"
+    },
+    "quiz": {
+      "via": "answers",
+      "model": "quiz"
+    }
+  }
+}

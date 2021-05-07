@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "results",
+  "info": {
+    "name": "result"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quiz": {
+      "via": "results",
+      "model": "quiz"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "results"
+    },
+    "score": {
+      "type": "biginteger"
+    },
+    "started_at": {
+      "type": "datetime"
+    },
+    "finished_at": {
+      "type": "datetime"
+    }
+  }
+}

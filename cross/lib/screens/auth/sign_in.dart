@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:quiz/data/colors.dart';
+import 'package:quiz/screens/auth/sign_up.dart';
+import 'package:quiz/screens/home/home.dart';
 import 'package:quiz/utils/size_config.dart';
 import 'package:quiz/utils/check_connectivity.dart';
-import 'package:quiz/widgets/custom_button.dart';
-import 'package:quiz/widgets/custom_container.dart';
-import 'package:quiz/widgets/custom_text.dart';
+import 'package:quiz/widgets/button.dart';
+import 'package:quiz/widgets/container.dart';
+import 'package:quiz/widgets/inputs/email_input.dart';
+import 'package:quiz/widgets/inputs/password_input.dart';
+import 'package:quiz/widgets/text.dart';
 import 'package:quiz/widgets/form_error.dart';
-import 'package:quiz/widgets/inputs.dart';
 import 'package:quiz/widgets/header.dart';
 import 'package:quiz/widgets/dialogs.dart';
 
@@ -26,7 +29,7 @@ class _SignInState extends State<SignIn> {
   String _messageError = "";
 
   void logIn() async {
-    String phone = _emailController.text.trim();
+    String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
     try {} on dio.DioError catch (e) {}
   }
@@ -34,14 +37,13 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomContainer(
-        padding: EdgeInsets.only(top: 2.45 * SizeConfig.heightMultiplier),
+      body: AppContainer(
+        margin: EdgeInsets.only(top: 9.81 * SizeConfig.heightMultiplier),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Header(
-                value: "Welcome Back,\nLog In",
-                margin: EdgeInsets.only(top: 3.92 * SizeConfig.heightMultiplier),
+                value: "Welcome\nBack",
               ),
               Form(
                   key: _formKey,
@@ -60,7 +62,7 @@ class _SignInState extends State<SignIn> {
                           value: _messageError,
                           margin: EdgeInsets.only(
                               bottom: 6.74 * SizeConfig.heightMultiplier)),
-                      CustomButton(
+                      AppButton(
                         value: "Log In",
                         widthPercentage: 1,
                         backgroundColor: AppColors.secondary,
@@ -70,8 +72,7 @@ class _SignInState extends State<SignIn> {
                         uppercase: false,
                         onPress: () async {
                           if (await checkConnectivity()) {
-                            logIn();
-
+                            Get.toNamed(Home.routeName);
                             // if (_formKey.currentState.validate()) {
                             //   logIn();
                             // }
@@ -80,7 +81,7 @@ class _SignInState extends State<SignIn> {
                           }
                         },
                       ),
-                      CustomText(
+                      AppText(
                         value: "Don't have an account?",
                         fontSize: 1.96 * SizeConfig.textMultiplier,
                         color: AppColors.brightGray,
@@ -89,13 +90,13 @@ class _SignInState extends State<SignIn> {
                             bottom: 1.23 * SizeConfig.heightMultiplier),
                       ),
                       GestureDetector(
-                        child: CustomText(
+                        child: AppText(
                           value: "Sign Up",
                           fontSize: 1.96 * SizeConfig.textMultiplier,
                           color: Colors.white,
                         ),
                         onTap: () {
-                          Get.back();
+                          Get.toNamed(SignUp.routeName);
                         },
                       )
                     ],

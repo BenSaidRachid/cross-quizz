@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz/data/colors.dart';
 import 'package:quiz/data/constants.dart';
+import 'package:quiz/screens/auth/sign_up.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:quiz/utils/size_config.dart';
 import 'package:quiz/services/api/auth.dart';
-import 'package:quiz/screens/home_screen.dart';
-import 'package:quiz/screens/auth/sign_in_screen.dart';
+import 'package:quiz/screens/home/home.dart';
+import 'package:quiz/screens/auth/sign_in.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
             home:  ApiAuth.isAuth() ? Home() : SignIn(),
             routes: {
               Home.routeName: (context) => Home(),
+              SignUp.routeName: (context) => SignUp(),
               SignIn.routeName: (context) => SignIn(),
             },
           );

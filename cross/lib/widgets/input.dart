@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz/data/colors.dart';
 import 'package:quiz/utils/size_config.dart';
 
-class CustomInput extends StatefulWidget {
+class AppInput extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType inputType;
   final Function(String value) onChanged;
@@ -31,7 +31,7 @@ class CustomInput extends StatefulWidget {
   final int maxLines;
   final bool autofocus;
 
-  const CustomInput(
+  const AppInput(
       {Key key,
         this.controller,
         this.inputType,
@@ -63,10 +63,10 @@ class CustomInput extends StatefulWidget {
       : super(key: key);
 
   @override
-  _CustomInputState createState() => _CustomInputState();
+  _AppInputState createState() => _AppInputState();
 }
 
-class _CustomInputState extends State<CustomInput> {
+class _AppInputState extends State<AppInput> {
   @override
   void initState() {
     super.initState();

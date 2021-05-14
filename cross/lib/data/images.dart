@@ -1,6 +1,6 @@
 class Images {
   Images._();
-
-  //Logo
-  static const String logo = "assets/img/brand/logo.svg";
+  static const URL = "assets/images";
+  //icons
+  static const String backArrow = "$URL/icons/back_arrow.svg";
 }

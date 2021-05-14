@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:quiz/data/colors.dart';
-import 'package:quiz/widgets/custom_text.dart';
-import 'package:quiz/widgets/custom_input.dart';
+import 'package:quiz/widgets/text.dart';
+import 'package:quiz/widgets/input.dart';
 import 'package:quiz/utils/size_config.dart';
 
 class CommonInput extends StatelessWidget {
@@ -40,7 +40,7 @@ class CommonInput extends StatelessWidget {
       child: Column(
         children: [
           if (label.isNotEmpty)
-            CustomText(
+            AppText(
               value: label,
               fontSize: fontSize ?? 1.96 * SizeConfig.textMultiplier,
               alignment: Alignment.centerLeft,
@@ -48,7 +48,7 @@ class CommonInput extends StatelessWidget {
                   EdgeInsets.only(bottom: 1.96 * SizeConfig.heightMultiplier),
               color: AppColors.brightGray,
             ),
-          CustomInput(
+          AppInput(
             controller: controller,
             inputType: inputType,
             color: Colors.white,
@@ -88,56 +88,6 @@ class CommonInput extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class EmailInput extends StatelessWidget {
-  final TextEditingController controller;
-  final EdgeInsets margin;
-
-  const EmailInput({Key key, @required this.controller, this.margin})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CommonInput(
-      controller: controller,
-      inputType: TextInputType.phone,
-      label: "Email",
-      margin: margin,
-      validator: (String email) {
-        if (email.isEmpty) {
-          return 'Enter your email';
-        }
-        return null;
-      },
-    );
-  }
-}
-
-class PasswordInput extends StatelessWidget {
-  final TextEditingController controller;
-  final EdgeInsets margin;
-
-  const PasswordInput({Key key, @required this.controller, this.margin})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return CommonInput(
-      controller: controller,
-      obscureText: true,
-      margin: margin,
-      label: "Password",
-      validator: (String password) {
-        if (password.isEmpty) {
-          return 'Enter your password';
-        } else if (password.length < 6) {
-          return 'Password should contain at least 6 characters';
-        }
-        return null;
-      },
     );
   }
 }

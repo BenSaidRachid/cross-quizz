@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/utils/size_config.dart';
-import 'package:quiz/widgets/custom_text.dart';
+import 'package:quiz/widgets/text.dart';
 
-class CustomButton extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final Function onPress;
   final Color backgroundColor;
   final Color highlightColor;
@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
   final bool hasWidthPercentage;
   final EdgeInsets padding;
 
-  CustomButton(
+  AppButton(
       {Key key,
         this.onPress,
         this.backgroundColor,
@@ -56,7 +56,7 @@ class CustomButton extends StatelessWidget {
               EdgeInsets.symmetric(
                   vertical: 2.94 * SizeConfig.heightMultiplier),
           child: child ??
-              CustomText(
+              AppText(
                 value: uppercase ? value.toUpperCase() : value,
                 alignment: textAlignment,
                 color: textColor,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/utils/size_config.dart';
 
-class CustomText extends StatelessWidget {
+class AppText extends StatelessWidget {
   final double width;
   final EdgeInsets margin;
   final EdgeInsets padding;
@@ -21,7 +21,7 @@ class CustomText extends StatelessWidget {
   final BoxBorder border;
   final BorderRadius borderRadius;
 
-  const CustomText(
+  const AppText(
       {Key key,
       this.width,
       @required this.value,

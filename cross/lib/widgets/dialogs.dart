@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz/utils/size_config.dart';
-import 'package:quiz/widgets/custom_text.dart';
+import 'package:quiz/widgets/text.dart';
 
 abstract class Dialog {
   static void show(BuildContext context, AlertDialog dialog) {
@@ -27,7 +27,7 @@ void internetDialog({
           onPressed: () {
             Get.back();
           },
-          child: CustomText(
+          child: AppText(
               value: "Close", fontSize: 2.70 * SizeConfig.textMultiplier))
     ],
   );

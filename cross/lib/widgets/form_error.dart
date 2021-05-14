@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/utils/size_config.dart';
-import 'package:quiz/widgets/custom_text.dart';
+import 'package:quiz/widgets/text.dart';
 
 class FormError extends StatelessWidget {
   final String value;
@@ -11,7 +11,7 @@ class FormError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomText(
+    return AppText(
       value: value,
       color: Colors.red,
       width: width,
